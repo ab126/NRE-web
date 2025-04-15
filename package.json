@@ -1,0 +1,33 @@
+{
+  "name": "parcel-vanilla-starter",
+  "private": true,
+  "version": "0.0.0",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.14.0",
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "process": "^0.11.10",
+    "vite": "^6.2.6"
+  },
+  "@parcel/resolver-default": {
+    "packageExports": true
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^4.22.0",
+    "@tweenjs/tween.js": "^25.0.0",
+    "three": "^0.175.0"
+  },
+  "staticFiles": {
+    "staticPath": [
+      "src/fonts",
+      "src/saves",
+      "src/shaders",
+      "src/stream_data"
+    ]
+  }
+}
