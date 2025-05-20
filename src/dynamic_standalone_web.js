@@ -16,7 +16,7 @@ import fragmentShader from './shaders/fragment.glsl.js'
 import vertexShaderDefault from './shaders/vertex_default.glsl.js'
 import fragmentShaderDefault from './shaders/fragment_default.glsl.js'
 
-import {generateLegend, fontManager} from './legendMaker_web.js';
+import {generateLegend, fontManagerWeb} from './legendMaker_web.js';
 import {makeNodes, makeConnectivityEdges, makeTopologyEdges, setNodePos, setAllEdgePosFromNodePos, setEdgePosFromNodePos,
     computeClusterParams, colormapLinear, color1, color2} from './graphMaker.js';
 
@@ -192,8 +192,15 @@ async function streamLoop(delay) {
 
 
 async function startStream() {
+
+    console.log('Starting the connection feed');
+
+    const container = document.getElementById("container");
+    container.className = 'slide';
+
     try {
-        await streamLoop(3000);      
+
+        await streamLoop(2500);      
         
     } catch (error) {
         console.error(error.message);
@@ -444,7 +451,7 @@ function labelMaxRisk(riskArr, maxLabelEntity, clusterGroup){
         
         // Add the text
         let size = 0.1; // 0.05
-        const fm = new fontManager(fontPath);
+        const fm = new fontManagerWeb(fontPath);
         const liteMat = new THREE.MeshBasicMaterial( {
             color: 0xffffff,
             transparent: true,

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import HelvetikerFont from "three/examples/fonts/helvetiker_regular.typeface.json";
 
 // Legend Parameters
 const defWidth = 900; 
@@ -35,6 +36,39 @@ export class fontManager{
             //animate();
     
         } );
+    }
+}
+
+// Same class for parcel environment
+export class fontManagerWeb{
+    constructor(fontPath){
+        this.path = fontPath;
+    }
+
+    
+    addFont(message, textPos, textMaterial, group2Add=null, size=0.03, scale=null, textRot=null){
+
+        const loader = new FontLoader();
+
+        const font = loader.parse(HelvetikerFont);
+
+        const shapes = font.generateShapes(message, size);
+        const geometry = new THREE.ShapeGeometry( shapes );
+        const text = new THREE.Mesh( geometry, textMaterial );
+        if (scale == null) {
+            text.scale.set(0.6, 1, 1);
+        } else {
+            text.scale.set(...scale);
+        }         
+        text.position.set(...textPos); 
+        if (group2Add != null) {
+            group2Add.add( text );
+        }
+        if (textRot != null) {
+            text.rotation.set(...textRot);
+        }
+
+    
     }
 }
 
