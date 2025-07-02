@@ -26,8 +26,8 @@ import * as data from './saves/net_data_medium1.json' assert {type: 'json'}; // 
 import jsonAll from './stream_data/render_data_all.json'
 
 const jsonObjAll = JSON.parse(jsonAll);
-console.log(data);
-console.log(jsonObjAll);
+// console.log(data);
+// console.log(jsonObjAll);
 //console.log('Current directory: ' + process.cwd());
 
 const fontPath = './fonts/helvetiker_regular.typeface.json';
@@ -93,12 +93,14 @@ const effectController = {
 };
 
 // Read planar positions
-let {namesArr, nodePosArr, topologyEdges, riskArr, riskCov: riskCov, funcEdges, entityColors, clusAssignments, extras} = data
+let {namesArr, nodePosArr, topologyEdges, riskArr, risk_cov: riskCov, funcEdges, entityColors, clusAssignments, extras} = data
 const nNodes = namesArr.length;
 const indDict = {}; // Dictionary of {name:index}
 for (let i = 0; i < nNodes; i++) {
     indDict[namesArr[i]] = i;
 }
+//console.log(data)
+console.log('Risk Covariance', riskCov[0][2]) // Array of array
 
 let stepSize = effectController.stepSize;
 let dt = stepSize / (effectController.maxIter + 1);
