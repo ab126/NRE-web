@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Network Risk Estimation Demo</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+			
+	</head>
+	
+
+	<!-- iframe/div this -->
+	<body>		
+        
+        
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/",
+					"tf": "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js",
+					"@tweenjs/tween.js": "/node_modules/@tweenjs/tween.js/dist/tween.esm.js",
+					
+				}
+			}
+		</script>
+		
+		<script id="vertexShader" type="x-shader/x-vertex">
+
+			varying vec2 vUv;
+
+			void main() {
+
+				vUv = uv;
+
+				gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+			}
+
+		</script>
+
+		<script id="fragmentShader" type="x-shader/x-fragment">
+
+			uniform sampler2D baseTexture;
+			uniform sampler2D bloomTexture;
+
+			varying vec2 vUv;
+
+			void main() {
+				// 				 Original Texture 				Intensity  	 *	Bloom Texture 
+				gl_FragColor = ( texture2D( baseTexture, vUv ) + vec4( 1.0 ) * texture2D( bloomTexture, vUv ) );
+
+			}
+
+		</script>
+		
+
+		<div id="container" class="hidden" >
+			<div id="head">
+				<h2 class="logs_head">Logs</h2>
+			</div>			
+				
+			<div id="logs"></div>
+		</div>
+		<!--
+		
+		<img src="../test/pic_trulli.jpg" alt="Trulli" width="500" height="333">
+		-->
+		<script type="module" src="dynamic_bloom_standalone.js">
+		</script>
+		
+	</body>
+</html>
+
