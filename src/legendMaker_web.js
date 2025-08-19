@@ -1,3 +1,5 @@
+// LegendMaker script for web
+
 import * as THREE from 'three';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 import HelvetikerFont from "three/examples/fonts/helvetiker_regular.typeface.json";

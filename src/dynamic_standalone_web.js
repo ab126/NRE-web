@@ -26,9 +26,6 @@ import * as data from './saves/net_data_medium1.json' assert {type: 'json'}; // 
 import jsonAll from './stream_data/render_data_all.json'
 
 const jsonObjAll = JSON.parse(jsonAll);
-// console.log(data);
-// console.log(jsonObjAll);
-//console.log('Current directory: ' + process.cwd());
 
 const fontPath = './fonts/helvetiker_regular.typeface.json';
 const streamDataPath = './stream_data';
@@ -99,8 +96,6 @@ const indDict = {}; // Dictionary of {name:index}
 for (let i = 0; i < nNodes; i++) {
     indDict[namesArr[i]] = i;
 }
-//console.log(data)
-console.log('Risk Covariance', riskCov[0][2]) // Array of array
 
 let stepSize = effectController.stepSize;
 let dt = stepSize / (effectController.maxIter + 1);
@@ -115,7 +110,6 @@ let stopVar = false;
 init();
 maxLabelEntity = labelMaxRisk(riskArr, maxLabelEntity, clusterGroup);
 animate();
-console.log(clusterGroup);
 
 // Read from json files
 async function advanceStreamTick(ind){
@@ -142,10 +136,6 @@ function processStreamTick(jsonObj) {
     let nFlows = jsonObj.nFlows;
     let timeStamp = jsonObj.timeStamp;
     const msg = `- ${timeStamp}: ${nFlows} flows`;
-
-    //console.log(funcEdges);
-    //console.log(topologyEdges);
-    //console.log(riskArr);
 
     // Add to HTML
     const para = document.createElement("p");
@@ -342,7 +332,6 @@ function init(){
     [clusterGroup, entityIndexInClus] = makeNodes(entityGeometry, routerGeometry, namesArr,  nodePosArr, funcEdges, riskArr, entityColors,
         clusAssignments, extras, sizeMult, effectController.colorWithRisks); // Entity nodes and edges
     scene.add( clusterGroup );
-    //console.log( entityIndexInClus) // -> Withing cluster the index of an entity
 
     // Edges
 

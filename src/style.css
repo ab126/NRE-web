@@ -14,14 +14,14 @@ h1 {
 
 body { margin: 0; }
 
-.h1 {
+.logs_head {
     font-family: 'Sans-serif', Helvetica;
     color: #ffffff;   
     font-size: 20px;
 }
 
 .p1 {
-    font-family: 'Sans-serif', Helvetica;
+    font-family: cursive;
     color: #ffffff;   
     font-size: 12px;
 }
