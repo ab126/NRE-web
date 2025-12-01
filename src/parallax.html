@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arda Bayer - Research</title>
+  <link rel="stylesheet" href="index-style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">Arda Bayer</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- decorative parallax layers (fixed) -->
+  <div class="parallax-layer" aria-hidden="true">
+    <div class="parallax-item p1" data-speed="0.18"></div>
+    <div class="parallax-item p2" data-speed="0.12"></div>
+    <div class="parallax-item p3" data-speed="0.22"></div>
+  </div>
+
+  <main>
+    <section id="home">
+      <div class="wrap">
+        <div>
+          <h1 class="reveal">Research Showcase</h1>
+          <hr>
+          <p class="lead reveal">Applying data-driven methods to various engineering problems</p>
+          <hr>
+          <a class="btn reveal" href="#work" onclick="event.preventDefault(); document.querySelector('#work').scrollIntoView({ behavior: 'smooth' });">See examples</a>
+        </div>
+
+        <aside class="card reveal">
+          <strong>Affliation</strong>
+          <hr style="margin:8px 0;border:none;border-top:1px solid rgba(255,255,255,0.02)">
+          <p style="margin-top:8px;color:rgba(230,238,248,0.7)">PhD student at Rice, Aazhang Lab — <a href="https://aaz.rice.edu/" style="color:inherit;opacity:.9">aaz.rice.edu</a></p>
+          <hr style="margin:8px 0;border:none;border-top:1px solid rgba(255,255,255,0.02)">
+          <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Graduate Fellow at Houston Methodist, Khavari Lab — <a href="https://www.khavariresearch.com/" style="color:inherit;opacity:.9">khavariresearch.com</a></p>
+          <hr style="margin:8px 0;border:none;border-top:1px solid rgba(255,255,255,0.02)">
+          <p style="font-size:.9rem;color:rgba(230,238,248,0.6)">Houston · TX </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap work-wrap" >
+
+        <div class="left-column">
+          <div class="section-header">
+            <h2 class="reveal">Selected work</h2> 
+            <p class="lead reveal">Click through for details</p>
+          </div>
+
+          <div id="work-cards">
+            <article class="card work reveal expandable">
+              <div>
+                <strong>Network Risk Estimation</strong>
+                <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Inferring cyber network risks in real-time </p>
+              </div>
+              <div style="opacity:.9"> - icon -</div>
+              <div class="more-details">Detailed explanation of the project, methods used, contributions, results, and links.</div>
+            </article>
+
+            <article class="card work reveal">
+              <div>
+                <strong>Urological Brain Computer Interface</strong>
+                <p style="color:rgba(230,238,248,0.7);font-size:.95rem">Decoding supraspinal control of Lower Urinary Tract</p>
+              </div>
+              <div style="opacity:.9">- icon -</div>
+            </article>
+          </div>
+        </div>  
+        
+        <div class="right-col">
+          <h2 class="reveal">Papers and Repositories</h2> 
+          <p class="lead reveal">Please consider citing if you make use of our work</p>
+          
+          <aside class="card reveal">
+            <strong>Network Risk Estimation</strong>
+            <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Paper: <a href="https://doi.org/10.48550/arXiv.2501.16487" style="color:inherit;opacity:.9">Bayer, A., Maluf, D. and Aazhang, B., 2025. Network Risk Estimation: A Risk Estimation Paradigm for Cyber Networks. arXiv preprint arXiv:2501.16487.</a></p>
+            <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Repository: <a href="https://github.com/ab126/NRE" style="color:inherit;opacity:.9">github.com/ab126/NRE</a></p>
+          
+          </aside>
+
+          <aside class="card reveal">
+            <strong>Manifold Embedded Functional Connectivity</strong>
+            <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Paper: <em>Soon</em></p>
+          </aside>
+        </div> 
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div>
+          <h2 class="reveal">About the lab</h2>
+          <p class="lead reveal">Concise mission statement, one or two sentences. Use this area to outline research interests and methods.</p>
+        </div>
+
+        <aside class="card reveal">
+          <strong>People</strong>
+          <p style="margin-top:8px;color:rgba(230,238,248,0.7)">PI · PhD · Collaborators</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div>
+          <h2 class="reveal">Get in touch</h2>
+          <p class="lead reveal">Interested in a collaboration? Drop a short note.</p>
+          <form class="reveal" onsubmit="event.preventDefault();alert('Thanks — replace this with real form handling')">
+            <div style="display:flex;gap:12px;margin-top:12px;flex-direction:column">
+              <input placeholder="Your name" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+              <input placeholder="Email" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+              <textarea placeholder="Message" rows="4" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+              <button class="btn" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="card reveal">
+          <strong>Follow</strong>
+          <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Links to ORCID, GitHub, Twitter</p>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Arda Bayer · Built with simplicity in mind
+    </footer>
+  </main>
+
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <script type="module" src="index.js"></script>
+
+</body>
+</html>

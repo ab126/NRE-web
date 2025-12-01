@@ -3,15 +3,14 @@
 	<head>
 		<title>Network Risk Estimation Demo</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="nre-style.css">
 			
 	</head>
 	
 
 	<!-- iframe/div this -->
 	<body>		
-        
-        
+
 		<script type="importmap">
 			{
 				"imports": {
@@ -24,13 +23,24 @@
 			}
 		</script>
 		
-		<script id="vertexShader" type="x-shader/x-vertex">
+		<script id="vertexShader" type="vert">
 
-			varying vec2 vUv;
+			precision mediump float;
+			precision mediump int;
 
-			void main() {
+			uniform mat4 modelViewMatrix; // optional
+			uniform mat4 projectionMatrix; // optional
 
-				vUv = uv;
+			attribute vec3 position;
+			attribute vec4 color;
+
+			varying vec3 vPosition;
+			varying vec4 vColor;
+
+			void main()	{
+
+				vPosition = position;
+				vColor = color;
 
 				gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
 
@@ -38,23 +48,29 @@
 
 		</script>
 
-		<script id="fragmentShader" type="x-shader/x-fragment">
+		<script id="fragmentShader" type="vert">
 
-			uniform sampler2D baseTexture;
-			uniform sampler2D bloomTexture;
+			precision mediump float;
+			precision mediump int;
 
-			varying vec2 vUv;
+			uniform float time;
 
-			void main() {
-				// 				 Original Texture 				Intensity  	 *	Bloom Texture 
-				gl_FragColor = ( texture2D( baseTexture, vUv ) + vec4( 1.0 ) * texture2D( bloomTexture, vUv ) );
+			varying vec3 vPosition;
+			varying vec4 vColor;
+
+			void main()	{
+
+				vec4 color = vec4( vColor );
+				color.r += sin( vPosition.x * 10.0 + time ) * 0.5;
+
+				gl_FragColor = color;
 
 			}
 
 		</script>
 		
 
-		<div id="container" class="hidden" >
+		<div id="container" class="hidden" > <!-- hidden-->
 			<div id="head">
 				<h2 class="logs_head">Logs</h2>
 			</div>			
@@ -65,7 +81,7 @@
 		
 		<img src="../test/pic_trulli.jpg" alt="Trulli" width="500" height="333">
 		-->
-		<script type="module" src="dynamic_bloom_standalone.js">
+		<script type="module" src="dynamic_standalone_web.js">
 		</script>
 		
 	</body>
