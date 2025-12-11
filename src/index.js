@@ -53,7 +53,10 @@ window.addEventListener('scroll', ()=>{
 // initial call
 onScroll();
 
-// Expandable work cards
+// Expandable work cards, collapsing right column
+const rightCol = document.querySelector('.right-col');
+const workWrap = document.querySelector('.work-wrap');
+
 document.querySelectorAll('.card.expandable').forEach(card => {
     card.addEventListener('click', (e) => {
 
@@ -65,11 +68,18 @@ document.querySelectorAll('.card.expandable').forEach(card => {
         // Close ALL cards first
         document.querySelectorAll('.card.expanded')
             .forEach(c => c.classList.remove('expanded'));
+        
 
         // Toggle this card
         if (!isOpen) {
             card.classList.add('expanded');
+            rightCol.classList.add('hidden');   // hide right column
+            workWrap.classList.add('expanded-mode');  // collapse grid to 1 column
+        } else {
+            rightCol.classList.remove('hidden'); // bring it back
+            workWrap.classList.remove('expanded-mode');  // restore 2 columns
         }
     });
 });
+
 
