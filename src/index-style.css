@@ -136,6 +136,43 @@ p.lead{
   margin-top:18px;
 }
 
+/* Card header layout - modular and compact */
+.card-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.card-text {
+  flex: 1;
+}
+
+.card-text strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.card-text p {
+  color: rgba(230,238,248,0.7);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.card-icon {
+  opacity: 0.9;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+}
+
+.card-icon img {
+  width: 72px;
+  height: 72px;
+  display: block;
+}
+
 /* Details text in cards */
 .card .more-details {
   margin-top: 1rem;
