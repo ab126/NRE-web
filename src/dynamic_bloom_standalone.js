@@ -1,5 +1,5 @@
 // This script displays prerecorded risk estimates
-// TODO: MAke a module and move all the socket functions there
+// TODO: Make a double and deploy both versions
 
 import * as THREE from 'three';
 import * as tf from '@tensorflow/tfjs';

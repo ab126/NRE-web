@@ -1,5 +1,5 @@
 // This script tests the reading calculated risks from python server
-// TODO: MAke a module and move all the socket functions there
+// TODO: Make the initial network have uniform risk witho no edge, turn on topology edges
 
 import * as THREE from 'three';
 import * as tf from '@tensorflow/tfjs';
@@ -79,7 +79,7 @@ topologyMaterial = new THREE.ShaderMaterial({
 // GUI
 const effectController = {
     showConnectivity: true,
-    showTopology: false,
+    showTopology: true,
     colorWithRisks: true,
     maxIter: 1950,
     stepSize: .015,
@@ -96,6 +96,13 @@ const indDict = {}; // Dictionary of {name:index}
 for (let i = 0; i < nNodes; i++) {
     indDict[namesArr[i]] = i;
 }
+
+// Fresh Start
+riskArr = new Array(nNodes).fill(1);
+riskCov = tf.zeros([nNodes, nNodes]).arraySync();
+funcEdges = tf.zeros([nNodes, nNodes]).arraySync();
+topologyEdges = [];
+funcEdges = tf.zeros([nNodes, nNodes]).arraySync();
 
 let stepSize = effectController.stepSize;
 let dt = stepSize / (effectController.maxIter + 1);
@@ -350,8 +357,6 @@ function init(){
     [clusMemberships, clusEdges] = computeClusterParams(clusterGroup, funcEdges, clusAssignments, indDict);
     
 }
-
-
 
 function onWindowResize() {
 
